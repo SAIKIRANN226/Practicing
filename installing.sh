@@ -10,20 +10,20 @@ N="\e[0m"
 
 if [ $ID -ne 0 ]
 then 
-    echo "$R ERROR: Please run this script with root user $N"
+    echo -e "$R ERROR: Please run this script with root user $N"
     exit 1
 else
-    echo "$Y Script started executing at ${DATE} $N"
+    echo -e "$Y Script started executing at ${DATE} $N"
 fi
 
 yum install mysql -y
 
 if [ $? -ne 0 ]
 then 
-    echo "$R ERROR:: Installing mysql failed $N"
+    echo -e "$R ERROR:: Installing mysql failed $N"
     exit 1
 else
-    echo "$G Installing mysql success $N"
+    echo -e "$G Installing mysql success $N"
 fi
 
 
