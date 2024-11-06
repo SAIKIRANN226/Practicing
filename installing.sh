@@ -8,7 +8,6 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-LOGFILE="/tmp/saikirann.log"
 
 VALIDATE() {
     if [ $1 -ne 0 ]
@@ -30,10 +29,10 @@ fi
 
 for package in $@
 do
-    yum list installed $package &>> $LOGFILE
+    yum list installed $package 
     if [ $? -ne 0 ]
     then 
-        yum install $package -y &>> $LOGFILE
+        yum install $package -y 
         VALIDATE $? "Installing ...$package"
     else
         echo -e "$Package $Y is already installed so $G SKIPPING $N"
