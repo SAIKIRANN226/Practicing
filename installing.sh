@@ -33,7 +33,6 @@ do
    then 
         yum install $package -y
     else
-        echo -e "$package is already installed......$Y SKIPPING
+        echo -e "$package is already installed......$Y SKIPPING $N"
     fi
 done
-
