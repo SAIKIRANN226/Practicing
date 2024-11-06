@@ -28,14 +28,14 @@ else
     echo -e "$Y This script is started executing at ${DATE} $N"
 fi
 
-yum install mysql -y &>> $LOGFILE
-
-VALIDATE $? "Installing mysql"
-
-yum install postfix -y &>> $LOGFILE
-
-VALIDATE $? "Installing postfix"
-
-yum install git -y &>> $LOGFILE
-
-VALIDATE $? "Installing git"
+for package in $@
+do
+    yum list installed $package
+    if [ $? -ne 0 ]
+    then 
+        yum install $package -y 
+        VALIDATE $? "Installing ...$package"
+    else
+        echo -e "$Y Package is already installed so $G SKIPPING $N"
+    fi
+done
