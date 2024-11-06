@@ -24,7 +24,7 @@ then
     echo -e "$R ERROR:: Please run this scrip with root user $N"
     exit 1
 else
-    echo -e "$Y Script started executing ${DATE}"
+    echo -e "$Y Script started executing ${DATE} $N"
 fi
 
 
